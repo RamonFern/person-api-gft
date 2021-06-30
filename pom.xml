@@ -15,6 +15,7 @@
 	<description>People control </description>
 	<properties>
 		<java.version>11</java.version>
+		<modelmapper.version>2.3.5</modelmapper.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -37,6 +38,10 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
@@ -45,6 +50,11 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${modelmapper.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
