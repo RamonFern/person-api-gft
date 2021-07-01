@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rf.dio.personapigft.entity.Person;
+import com.rf.dio.personapigft.exceptions.PersonNotFoundException;
 import com.rf.dio.personapigft.repository.PersonRepository;
 
 @Service
@@ -31,6 +32,9 @@ public class PersonService {
 		return personRepository.findAll();
 	}
 	
-	
+	@Transactional(readOnly = true)
+	public Person findById(Long id) {
+		return personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
+	}
 
 }
