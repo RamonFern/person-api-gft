@@ -36,5 +36,11 @@ public class PersonService {
 	public Person findById(Long id) {
 		return personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
 	}
+	
+	@Transactional
+	public void delete(Long id) {
+		findById(id);
+		personRepository.deleteById(id);
+	}
 
 }
