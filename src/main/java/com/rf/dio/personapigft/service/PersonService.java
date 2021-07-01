@@ -42,5 +42,18 @@ public class PersonService {
 		findById(id);
 		personRepository.deleteById(id);
 	}
+	
+	@Transactional
+	public Person update(Long id, Person person) {
+		Person personUpdate = findById(id);
+		personUpdate.setPrimeiroNome(person.getPrimeiroNome());
+		personUpdate.setUltimoNome(person.getUltimoNome());
+		personUpdate.setCpf(person.getCpf());
+		personUpdate.setDataNiver(person.getDataNiver());
+		personUpdate.setPhones(person.getPhones());
+
+		personRepository.save(personUpdate);
+		return personUpdate;
+	}
 
 }
